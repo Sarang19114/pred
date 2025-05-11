@@ -6,6 +6,8 @@ import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { checkSession } from "@/components/Auth/Auth";
 import { Icons } from "@/components/ui/icons";
+import EyeLogo from "@/components/ui/EyeLogo";
+import { Spotlight } from "@/components/ui/spotlight-new";
 
 const BACKEND_URL = "http://127.0.0.1:5000";
 
@@ -83,9 +85,15 @@ export default function Signup() {
                 />
             </div>
             <div className="min-h-screen flex items-center justify-center p-4">
+                      <div className="relative overflow-hidden">
+        <Spotlight />
+      </div>
                 <div className="max-w-md w-full mx-auto p-4 md:p-8 shadow-input">
                     <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200 text-center">
-                        Welcome to Stocket
+                        <div className="flex items-center justify-center">
+                        Welcome to <span className="text-indigo-600 pr-2 pl-2">Stocket</span> 
+                        <EyeLogo size={25} />
+                        </div>
                     </h2>
                     <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300 text-center">
                         Create your account to get started

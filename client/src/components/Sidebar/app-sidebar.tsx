@@ -60,8 +60,9 @@ import { ModeSwitch } from "../Theme/mode-switch"
 import UpdateProfile from "../Settings/AccountSettings"
 import { FeedbackForm } from "../Feedback/FeedbackForm"
 import Contact from "../Contact/Contact"
+import EyeLogo from "@/components/ui/EyeLogo";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BACKEND_URL = "http://localhost:5000";
 
 const storedUsername = localStorage.getItem('predicthub_username')
 
@@ -165,10 +166,10 @@ export function AppSidebar() {
                         <SidebarMenuButton size="lg" asChild>
                             <a href="/">
                                 <div >
-                                    <span className="text-2xl">📈</span>
+                                    <EyeLogo size={30} />
                                 </div>
                                 <div className="grid flex-1 text-left text-sm leading-tight">
-                                    <span className="truncate font-semibold text-xl">Stocket</span>
+                                    <span className="truncate font-semibold text-xl text-indigo-600">Stocket</span>
                                 </div>
                             </a>
                         </SidebarMenuButton>

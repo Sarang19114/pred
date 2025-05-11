@@ -98,7 +98,7 @@ export function Features() {
         }
     ];
     return (
-        <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[30rem] mt-[-70px] p-4 mb-10">
+        <BentoGrid className="max-w-7xl mx-auto md:auto-rows-[30rem] mt-[-70px] p-4 mb-10">
             {items.map((item, i) => (
                 <BentoGridItem
                     key={i}

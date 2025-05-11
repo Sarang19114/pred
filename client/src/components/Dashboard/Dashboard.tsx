@@ -94,8 +94,10 @@ export default function Dashboard({ data, loading, ticker }: PageProps) {
                     change={((current.close - previous.close) / previous.close) * 100}
                     prefix="$"
                 />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 flex-1">
                 <StockChart ticker={ticker} />
-                <Card className="rounded-none">
+                <Card className="rounded-xl">
                     <StockDetails ticker={ticker} />
                 </Card>
             </div>

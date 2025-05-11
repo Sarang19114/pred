@@ -18,7 +18,7 @@ import  { RandomForest } from "./pages/RandomForest";
 import { ARIMA } from "./pages/ARIMA";
 import ErrorPage from "./pages/ErrorPage";
 import { Analytics } from "@vercel/analytics/react"
-import TermsAndConditions from "./pages/TermsAndConditions";
+import TermsAndConditions from "./pages/termsandconditions";
 
 const App = () => {
   return (

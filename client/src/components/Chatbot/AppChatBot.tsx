@@ -11,7 +11,7 @@ const APP_API_KEY = import.meta.env.VITE_DEVBOT_API_KEY;
 export default function AppChatBot() {
     const [isOpen, setIsOpen] = React.useState(false);
     const [messages, setMessages] = React.useState([
-        { role: 'assistant', content: '👋🏻 Greetings! PredictHub at your Service.' }
+        { role: 'assistant', content: '👋🏻 Greetings! Stocket at your Service.' }
     ]);
     const [input, setInput] = React.useState('');
     const [isLoading, setIsLoading] = React.useState(false);
@@ -85,7 +85,7 @@ export default function AppChatBot() {
                     <CardHeader className="bg-muted/50 p-1 flex flex-row justify-between items-center rounded-t-xl border-b">
                         <div className="flex items-center gap-2">
                             <span>📈</span>
-                            <h2 className="font-semibold -ml-1">PredictHub</h2>
+                            <h2 className="font-semibold -ml-1">Stocket</h2>
                         </div>
                         <Button
                             variant="ghost"

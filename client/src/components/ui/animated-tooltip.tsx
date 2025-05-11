@@ -17,6 +17,8 @@ export const AnimatedTooltip = ({
     name: string;
     designation: string;
     image: string;
+    linkedin: string; // Added linkedin field
+    github: string; // Added github field
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -25,14 +27,16 @@ export const AnimatedTooltip = ({
   // rotate the tooltip
   const rotate = useSpring(
     useTransform(x, [-100, 100], [-45, 45]),
-    springConfig,
+    springConfig
   );
   // translate the tooltip
   const translateX = useSpring(
     useTransform(x, [-100, 100], [-50, 50]),
-    springConfig,
+    springConfig
   );
-  const handleMouseMove = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+  const handleMouseMove = (
+    event: React.MouseEvent<HTMLImageElement, MouseEvent>
+  ) => {
     const halfWidth = (event.target as HTMLImageElement).offsetWidth / 2;
     x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
   };
@@ -74,6 +78,22 @@ export const AnimatedTooltip = ({
                   {item.name}
                 </div>
                 <div className="text-xs text-white">{item.designation}</div>
+                <a
+                  href={item.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 text-xs text-sky-400 hover:underline"
+                >
+                  LinkedIn
+                </a>
+                                <a
+                  href={item.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 text-xs text-sky-400 hover:underline"
+                >
+                  Github
+                </a>
               </motion.div>
             )}
           </AnimatePresence>

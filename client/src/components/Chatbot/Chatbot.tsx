@@ -6,7 +6,7 @@ import { MessageSquare as Cube, X, Forward, ArrowDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Icons } from "@/components/ui/icons";
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+const backendUrl = 'http://localhost:5000';
 
 export default function ChatWidget() {
     const [isOpen, setIsOpen] = React.useState(false)

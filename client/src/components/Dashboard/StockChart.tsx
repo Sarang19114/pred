@@ -1,35 +1,39 @@
-import { useEffect, useRef } from 'react';
-import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-} from "@/components/ui/hover-card"
-import { ChartCandlestick } from 'lucide-react';
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 interface PageProps {
-    ticker: string;
+  ticker: string;
+  sidebarOpen?: boolean;
 }
 
-const StockChart = ({ ticker }: PageProps) => {
-    const container = useRef<HTMLDivElement | null>(null);
-    const webAppTheme = localStorage.getItem('vite-ui-theme');
+const StockChart = ({ ticker = "GOOGL", sidebarOpen = true }: PageProps) => {
+  const container = useRef<HTMLDivElement | null>(null);
+  const [theme, setTheme] = useState("light");
 
-    useEffect(() => {
-        if (!container.current) return;
+  useEffect(() => {
+    const webAppTheme = localStorage.getItem("vite-ui-theme") || "light";
+    setTheme(webAppTheme);
 
-        const script = document.createElement('script');
-        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
-        script.type = 'text/javascript';
-        script.async = true;
-        script.innerHTML = `{
+    if (!container.current) return;
+
+    const script = document.createElement("script");
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = `{
             "autosize": true,
-            "symbol": "NASDAQ:${ticker || 'GOOGL'}",
+            "symbol": "NASDAQ:${ticker || "GOOGL"}",
             "interval": "D",
             "timezone": "Etc/UTC",
-            "theme": "${webAppTheme}",
+            "theme": "${theme}",
             "style": "1",
             "locale": "en",
-            "backgroundColor": "${webAppTheme === 'dark' ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0)'}",
+            "backgroundColor": "${
+              theme === "dark" ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0)"
+            }",
             "gridColor": "rgba(201, 218, 248, 0.06)",
             "hide_top_toolbar": true,
             "allow_symbol_change": true,
@@ -37,38 +41,50 @@ const StockChart = ({ ticker }: PageProps) => {
             "hide_volume": true,
             "support_host": "https://www.tradingview.com"
         }`;
-        container.current.appendChild(script);
+    container.current.appendChild(script);
 
-        return () => {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            container.current?.removeChild(script);
-        };
-    }, [ticker, webAppTheme]);
+    return () => {
+      if (container.current?.contains(script)) {
+        container.current.removeChild(script);
+      }
+    };
+  }, [ticker, theme]);
 
-    return (
-        <div className="col-span-1 sm:col-span-2 lg:col-span-3 h-[600px] overflow-hidden relative">
+  // Determine additional classes based on sidebar state
+  const chartSizeClasses = sidebarOpen 
+    ? "col-span-1 sm:col-span-2 lg:col-span-3" 
+    : "col-span-1 sm:col-span-3 lg:col-span-4";
+
+  const chartHeightClasses = sidebarOpen ? "h-96" : "h-112";
+
+  return (
+    <div className={`${chartSizeClasses} z-50 transition-all duration-300`}>
+      <CardContainer containerClassName="py-1 w-full max-w-7xl mx-auto">
+        <CardBody className="bg-gray-50 dark:bg-black dark:border-white/[0.2] border-black/[0.1] rounded-xl p-6 border overflow-hidden">
+          <CardItem
+            translateZ={50}
+            className="text-xl font-bold text-neutral-600 dark:text-white"
+          >
+            {ticker || "GOOGL"} Stock Chart
+          </CardItem>
+
+          <CardItem
+            translateZ={60}
+            className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+          >
+            Interactive candlestick chart powered by TradingView
+          </CardItem>
+
+          <CardItem translateZ={100} className={`w-full mt-4 ${chartHeightClasses} z-50 transition-all duration-300`}>
             <div
-                ref={container}
-                className="tradingview-widget-container h-full w-full"
+              ref={container}
+              className="tradingview-widget-container w-full h-full rounded-xl"
             ></div>
-
-            <HoverCard>
-                <HoverCardTrigger>
-                    <button
-                        className="absolute bottom-[40px] left-[11px] bg-muted text-white rounded-full w-12 h-12 flex items-center justify-center z-20"
-                    >
-                        <ChartCandlestick className='text-black dark:text-white' />
-                    </button>
-                </HoverCardTrigger>
-                <HoverCardContent>
-                    <h3 className="font-semibold mb-2">Candlestick Chart</h3>
-                    <p className="text-[10px] text-muted-foreground">
-                        A candlestick chart is a financial chart used to represent the price movements of a security, derivative, or currency over time. Each candlestick shows four key pieces of information for a specific time period: open, high, low, and close prices. The body of the candlestick indicates the price range between the open and close, while the wicks (or shadows) represent the high and low prices. It's commonly used in technical analysis for identifying patterns and trends.
-                    </p>
-                </HoverCardContent>
-            </HoverCard>
-        </div>
-    );
+          </CardItem>
+        </CardBody>
+      </CardContainer>
+    </div>
+  );
 };
 
 export default StockChart;

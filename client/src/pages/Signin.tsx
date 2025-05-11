@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Eye, EyeOff } from 'lucide-react';
 import { Icons } from "@/components/ui/icons";
+import EyeLogo from "@/components/ui/EyeLogo";
+import { Spotlight } from "@/components/ui/spotlight-new";
 
 const BACKEND_URL = "http://localhost:5000";
 
@@ -77,9 +79,15 @@ export default function Signin() {
                 />
             </div>
             <div className="min-h-screen flex items-center justify-center p-4">
+                      <div className="relative overflow-hidden">
+        <Spotlight />
+      </div>
                 <div className="max-w-md w-full mx-auto p-4 md:p-8 shadow-input">
-                    <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200 text-center mb-4">
-                        Signin
+                    <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200 text-center">
+                        <div className="flex items-center justify-center">
+                        Welcome to <span className="text-indigo-600 pr-2 pl-2">Stocket</span> 
+                        <EyeLogo size={25} />
+                        </div>
                     </h2>
                     <form className="my-8" onSubmit={handleSubmit}>
                         <LabelInputContainer className="mb-4">

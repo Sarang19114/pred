@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { CircleMinus } from 'lucide-react';
 import { toast } from "sonner";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BACKEND_URL = "http://localhost:5000";
 
 interface WatchlistResponse {
   success: boolean;
@@ -67,7 +67,7 @@ const StockWidgetCard = ({ ticker, username, onRemove }: StockWidgetCardProps) =
   };
 
   return (
-    <Card className="p-4 w-full h-[200px] relative">
+    <Card className="p-4 w-[400px] h-[200px] relative">
       <CardContent className="relative">
         {/* TradingView Widget */}
         <div
