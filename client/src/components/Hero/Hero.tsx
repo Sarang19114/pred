@@ -82,13 +82,13 @@ const Hero = () => {
         <div className="text-center">
           <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl dark:text-gray-400">
             <div className="flex items-center justify-center">
-              <span className="text-fuchsia-800 pr-5">Stocket</span> <br />
+              <span className="text-lime-500 pr-5">$tocket</span> <br />
               <div ref={targetRef} className={`transition-opacity duration-500 ${scrolled ? 'opacity-0' : 'opacity-100'}`}>
                 <EyeLogo size={50} />
               </div>
             </div>
-            Own the Market.
-            Predict the Market with<FlipWords words={words} /> <br />
+            <span className="text-sky-200">Own the Market.
+            Predict the Market with</span><FlipWords words={words} /> <br />
           </h1>
           <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
             Predict. Profit. Repeat

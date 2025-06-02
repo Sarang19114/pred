@@ -211,7 +211,7 @@ const EyeLogo = ({ size = 35 }: { size?: number }) => {
   return (
     <div 
       ref={eyeContainerRef}
-      className="flex items-center justify-center bg-fuchsia-800 rounded-full relative"
+      className="flex items-center justify-center bg-lime-500 rounded-full relative"
       style={{ width: `${size}px`, height: `${size}px` }}
     >
       {/* Left Eye */}

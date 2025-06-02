@@ -20,7 +20,7 @@ const Footer = () => {
           name: "Naina Jain",
           designation: "Machine Learning Developer",
           linkedin: "https://www.linkedin.com/in/naina-jain-977682303/",
-          github: "",
+          github: "https://github.com/Naina2308",
           image:
             "/naina.png",
         },
@@ -58,7 +58,7 @@ const Footer = () => {
                           <div className="flex items-center justify-left w-full mb-4">
                             <EyeLogo size={25} />
                           <a href="/" className="flex items-center">
-                              <span className="ml-2 self-center text-2xl font-semibold whitespace-nowrap text-indigo-600">
+                              <span className="ml-2 self-center text-2xl font-semibold whitespace-nowrap text-lime-500">
                                   Stocket
                               </span>
                           </a>

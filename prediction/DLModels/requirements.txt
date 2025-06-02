@@ -1,0 +1,10 @@
+Flask
+flask-cors
+python-dotenv
+gunicorn
+requests
+scikit-learn
+keras
+yfinance
+matplotlib
+tensorflow==2.12.0
