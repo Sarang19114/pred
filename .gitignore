@@ -1,0 +1,17 @@
+# Ignore Python virtual environments anywhere
+venv/
+*/venv/
+**/venv/
+
+# Ignore node_modules anywhere
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
