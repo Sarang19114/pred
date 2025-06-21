@@ -1,5 +1,3 @@
-"use client";
-import { link } from "fs";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
 import EyeLogo from "@/components/ui/EyeLogo";
 
@@ -16,15 +14,15 @@ const Footer = () => {
         
         },
         {
-          id: 2,
-          name: "Naina Jain",
-          designation: "Machine Learning Developer",
-          linkedin: "https://www.linkedin.com/in/naina-jain-977682303/",
-          github: "https://github.com/Naina2308",
-          image:
-            "/naina.png",
+            id: 4,
+            name: "Ruqayya Shah",
+            designation: "Machine Learning & Frontend Developer",
+            linkedin: "https://www.linkedin.com/in/ruqayya-shah-92032923b/",
+            github: "",
+            image:
+              "/ruqayya.png",
         },
-        {
+    {
             id: 3,
             name: "Janvi Chauhan",
             designation: "Machine Learning Developer",
@@ -34,13 +32,22 @@ const Footer = () => {
             github: "",
         },
         {
-            id: 4,
-            name: "Ruqayya Shah",
-            designation: "Machine Learning & Frontend Developer",
-            linkedin: "https://www.linkedin.com/in/ruqayya-shah-92032923b/",
-            github: "",
+          id: 2,
+          name: "Naina Jain",
+          designation: "Machine Learning Developer",
+          linkedin: "https://www.linkedin.com/in/naina-jain-977682303/",
+          github: "https://github.com/Naina2308",
+          image:
+            "/naina.png",
+        },
+        {
+            id: 5,
+            name: "Tejas Chauhan",
+            designation: "Flask Backend Developer",
+            linkedin: "https://www.linkedin.com/in/tejas-chauhan-3051a2275/",
+            github: "https://github.com/Sandblaze05",
             image:
-              "/ruqayya.png",
+              "/tejas.png",
         },
       ];
   return (

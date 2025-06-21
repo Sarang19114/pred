@@ -42,7 +42,7 @@ def LSTM_Model(df):
     X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
 
     # Load model
-    model_path = os.path.join(os.getcwd(), 'utils', 'Saved_Models', 'LSTM_model.h5')
+    model_path = os.path.join(os.getcwd(), 'utils', 'Saved_Models', 'LSTM_model.keras')
     model = load_model(model_path)
 
     # Prepare testing data
@@ -83,7 +83,7 @@ def predict_stock_price_lstm(ticker):
             "ticker": ticker.upper(),
             "original_prices": last_true.tolist(),
             "predicted_prices": last_pred.tolist(),
-            "next_day_prediction": round(next_day_price, 3)
+            "next_day_prediction": float(round(next_day_price, 3))
         })
 
     except Exception as e:
